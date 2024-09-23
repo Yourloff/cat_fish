@@ -8,18 +8,20 @@ class Player
     @image = Gosu::Image.new('images/player.png')
     @x = 100
     @y = 100
-    @angle = 0.0
     @width = @image.width
     @height = @image.height
     @score = 0
+    @facing_right = false
   end
 
   def move_left
     @x -= SPEED if @x - SPEED >= 0
+    @facing_right = true
   end
 
   def move_right(window_width)
     @x += SPEED if @x + SPEED <= window_width - @image.width
+    @facing_right = false
   end
 
   def move_up
@@ -31,6 +33,10 @@ class Player
   end
 
   def draw
-    @image.draw_rot(@x, @y, 1, @angle)
+    if @facing_right
+      @image.draw(@x, @y, 1)
+    else
+      @image.draw(@x + @width, @y, 1, -1, 1)
+    end
   end
 end
