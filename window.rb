@@ -12,6 +12,9 @@ class SimpleWindow < Gosu::Window
     @close_button_size = 20
     @close_button_x = width - @close_button_size - 10
     @close_button_y = 10
+
+    @music = Gosu::Song.new('media/track.mp3')
+    @music.play(true)
   end
 
   def update
