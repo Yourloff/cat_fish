@@ -5,7 +5,7 @@ class Player
   attr_accessor :score
 
   def initialize
-    @image = Gosu::Image.new('images/player.png')
+    @image = Gosu::Image.new('images/cat.png')
     @x = 100
     @y = 100
     @width = @image.width
